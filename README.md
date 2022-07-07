@@ -9,9 +9,9 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#a-few-notes-before-starting">About The Project</a>
       <ul>
-        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#Parameters">Built With</a></li>
       </ul>
     </li>
     <li>
@@ -31,6 +31,7 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
 </details>
 
 ## A few notes before starting
+<!-- A few notes before starting -->
 
 ### Directory hierarchy
 
@@ -142,6 +143,7 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 
 
 ### Parameters
+<!-- Parameters -->
 
 `ref_bead_foldername` a character vector of the folder name containing the first acquisition timepoint (which will be used for normalization)
 
