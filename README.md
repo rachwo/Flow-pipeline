@@ -97,6 +97,7 @@ Once you have acquired your flow cytometry data and organized it as outlined abo
 
 *NOTE: If normalization is not required, then the* ```cytoNorm``` *function does not need to be run*
 
+Sample data to run the analysis can be found in the `Parent` folder.
 
 ### Here is an example of how to run the analysis:
 
