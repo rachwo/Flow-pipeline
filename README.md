@@ -25,7 +25,7 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
         <li><a href="#3-Visualization-with-cytoUMAP">cytoUMAP</a></li>
       </ul>
     </li>
-    <li><a href="#Added functions">Functions to add</a></li>
+    <li><a href="#Added-functions">Functions to add</a></li>
     <li><a href="#contact">Contact</a></li>
     </ol>
 
