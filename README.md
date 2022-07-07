@@ -12,7 +12,7 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
       <a href="#a-few-notes-before-starting">Before starting</a>
       <ul>
         <li><a href="#directory-hierarchy">Directory hierarchy</a></li>
-        <li><a href="#dr-packages">R packages</a></li>
+        <li><a href="#r-packages">R packages</a></li>
         <li><a href="#input-file-format">Input file format</a></li>
       </ul>
     </li>
