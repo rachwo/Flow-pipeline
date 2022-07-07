@@ -32,7 +32,7 @@ cytoNorm <- function(ref_bead_foldername,
   # calculate median for each channel
   med <- do.call(rbind, lapply(bead.sum, function(d) data.frame(med = lapply(d,median))))
   
-  # calculate normalization factor (divide unnormalized bead data by ref bead data)
+  # calculate normalization factor
   norm.fact <- as.data.frame(sapply(med, FUN = function(x) x[1]/x))  
   norm.fact$Well <- "Beads"
   norm.fact$Folder <- row.names(med)
