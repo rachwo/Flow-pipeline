@@ -55,8 +55,6 @@ Parent
        └── folder_3_csv3.csv
 ```
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 ### R packages 
 
@@ -172,6 +170,9 @@ This function reads each csv file containing the exported flow cytometry data an
 `plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE. 
 
 ## Visualization with ```cytoUMAP```
+
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 ## Contact 
