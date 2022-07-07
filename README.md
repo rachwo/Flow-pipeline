@@ -7,21 +7,21 @@ as well as UMAP plots.
 Your directory hierarchy should contain files similar to this:
 
 
-#   Parent 
-#     |-- Flow folder 1 (CONTAINS REFERENCE BEADS)
-#     |    |-- Beads.csv
-#     |    |-- folder_1_csv1.csv
-#     |    |-- folder_1_csv2.csv
-#     |    `-- folder_1_csv3.csv
-#     |
-#     |-- Flow folder 2
-#     |    |-- Beads.csv
-#     |    |-- folder_2_csv1.csv
-#     |    |-- folder_2_csv2.csv
-#     |    `-- folder_2_csv3.csv
-#     |
-#     `-- Flow folder 3 
-#          |-- Beads.csv
-#          |-- folder_3_csv1.csv
-#          |-- folder_3_csv2.csv
-#          `-- folder_3_csv3.csv
+Parent 
+  |-- Flow folder 1 (CONTAINS REFERENCE BEADS)
+  |    |-- Beads.csv
+  |    |-- folder_1_csv1.csv
+  |    |-- folder_1_csv2.csv
+  |    `-- folder_1_csv3.csv
+  |
+  |-- Flow folder 2
+  |    |-- Beads.csv
+  |    |-- folder_2_csv1.csv
+  |    |-- folder_2_csv2.csv
+  |    `-- folder_2_csv3.csv
+  |
+  `-- Flow folder 3 
+       |-- Beads.csv
+       |-- folder_3_csv1.csv
+       |-- folder_3_csv2.csv
+       `-- folder_3_csv3.csv
