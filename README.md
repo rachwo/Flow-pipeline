@@ -7,12 +7,12 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
 
 
 
-# A note before starting
+## A note before starting
 
 To begin, your directory hierarchy should look similar to this (although, if normalization is not needed, then the Beads.csv files are not required). Each tube acquired by flow should be exported in **scale value** from FlowJo (flow_sample_X.csv) and should be contained in a folder with all other samples collected on that day.
 
 
-```bash
+```
 Parent 
   ├── Flow data collected on day 1
   │    ├── Beads.csv
