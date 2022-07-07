@@ -25,6 +25,13 @@ cytoTrans <- function(ref_flow_foldername,
   mat <- mat.full %>% select(-contains(c("FSC","SSC","Time","GFP","DAPI","Live")))
   
   if (isTRUE(normalize)) {
+  
+  # double check that cytoNorm was run successfully.
+  if (exists("norm.fact") != TRUE) {
+    
+    print("Error: Can't perform normalization unless cytoNorm has been run. Please run cytoNorm first.")
+  }
+    
   # join normalization vector with matrix 
   mat <- inner_join(mat, norm.fact[,c(1:14,16)], by = "Folder")
   
