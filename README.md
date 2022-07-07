@@ -126,6 +126,7 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 
 
 
+
 ## arcsinh transformation with ```cytoTrans```
 
 This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation will also be performed. 
