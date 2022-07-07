@@ -24,6 +24,7 @@ cytoTrans <- function(ref_flow_foldername,
   # remove unwanted channels
   mat <- mat.full %>% select(-contains(c("FSC","SSC","Time","GFP","DAPI","Live")))
   
+  # perform per-channel normalization
   if (isTRUE(normalize)) {
   
   # double check that cytoNorm was run successfully.
@@ -40,10 +41,10 @@ cytoTrans <- function(ref_flow_foldername,
   norm.len <- len + length(norm.fact)
   
   mat.norm <- mat[1:len]*mat[(length(norm.fact)+1):(norm.len)]
-  #mat.norm <- mat[1:14]*mat[17:30]
   mat.norm$Well <- mat$Well
   mat.norm$Folder <- mat$Folder
   
+  # generate histograms of normalized and unnormalized data
   if (isTRUE(plot_norm)) {
   
   mat.plot <- mat[,c(1:16)] %>% 
