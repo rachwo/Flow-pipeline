@@ -119,7 +119,9 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 ### Parameters
 
 `ref_bead_foldername` a character vector of the folder name containing the first acquisition timepoint (which will be used for normalization)
+
 `bead_foldername` a character vector of the folder name containing the second acquisition timepoint (which will be normalized)
+
 `bead_foldername2` *(optional)* a character vector of the folder name containing the third acquisition timepoint (which will be normalized) 
 
 
@@ -130,9 +132,13 @@ This function reads each csv file containing the exported flow cytometry data an
 ### Parameters 
 
 `ref_flow_foldername` a character vector of the folder name containing the first acquisition timepoint
+
 `flow_foldername_1` a character vector of the folder name containing the second acquisition timepoint
+
 `flow_foldername_2` *(optional)* the name of the folder containing the third acquisition timepoint
+
 `normalize` a logical value. If `TRUE`, per-channel normalization will be performed. If `FALSE`, per-channel normalization will not be performed. Default is FALSE. 
+
 `plot_norm` a logical value. If `TRUE`, normalized and unnormalized histograms will be produced for each channel and for each sample. If `FALSE`, plotting function will be turned off. Default is FALSE. 
 
 
