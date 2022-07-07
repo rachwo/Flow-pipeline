@@ -4,10 +4,13 @@ This is a pipeline for merging, transforming, normalizing and visualizing flow c
 
 The input is csv files which are exported in **scale value** from FlowJo software. The output is normalized and transformed matrices for each flow cytometry channel, as well as UMAP plots.
 
-To begin, your directory hierarchy should look similar to this (although, if normalization is not needed, then the Beads.csv files are not required). 
 
 
-# Directory hierarchy (required to run)
+
+# A note before starting
+
+To begin, your directory hierarchy should look similar to this (although, if normalization is not needed, then the Beads.csv files are not required). Each tube acquired by flow should be exported in **scale value** from FlowJo (flow_sample_X.csv) and should be contained in a folder with all other samples collected on that day.
+
 
 ```bash
 Parent 
