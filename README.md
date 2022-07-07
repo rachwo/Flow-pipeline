@@ -37,7 +37,7 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
 
 To begin, your directory hierarchy should look similar to this. Each tube acquired by flow should be exported in **scale value** from FlowJo (flow_sample_X.csv) and should be contained in a folder with all other samples collected on that day. 
 
-*NOTE: if normalization is not needed, then the *`Beads.csv` *files acquired at each timepoint are not required). However, if you choose to normalize your data, the bead data must be saved as *`Beads.csv`, *and there must be one `Beads.csv` file per acquisition folder*.
+*NOTE: if normalization is not needed, then the `Beads.csv` files acquired at each timepoint are not required). However, if you choose to normalize your data, the bead data must be saved as `Beads.csv`, and there must be one `Beads.csv` file per acquisition folder
 
 ```
 Parent 
@@ -93,11 +93,10 @@ FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 
 ## Quick start guide
 
-Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. 
+Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. Sample data to run the analysis can be found in the `Parent` folder.
 
 *NOTE: If normalization is not required, then the* ```cytoNorm``` *function does not need to be run*
 
-Sample data to run the analysis can be found in the `Parent` folder.
 
 ### Here is an example of how to run the analysis:
 
