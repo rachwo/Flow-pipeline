@@ -62,6 +62,8 @@ Parent
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
 ### R packages 
 
 In addition, the following R packages are required: 
@@ -91,6 +93,8 @@ FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
 # Quick start guide
 
 Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. 
@@ -137,6 +141,8 @@ cytoUMAP(min_nn = 50,
 This will generate a new folder ```Neighbour_plots``` which will contain several UMAP plots iterated over a range of specified numbers of neighbours for the user-defined minimum distance. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
 # Running the analysis
 
 ## Sample normalization with ```cytoNorm``` *(optional)*
