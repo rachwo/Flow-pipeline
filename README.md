@@ -21,8 +21,8 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
       <a href="#running-the-analysis">Running the analysis</a>
       <ul>
         <li><a href="#1-sample-normalization-with-cytonorm-optional">cytoNorm</a></li>
-        <li><a href="#2-#arcsinh-transformation-with-cytotrans">cytoTrans</a></li>
-        <li><a href="#3-#Visualization-with-cytoUMAP">cytoUMAP</a></li>
+        <li><a href="#2-arcsinh-transformation-with-cytotrans">cytoTrans</a></li>
+        <li><a href="#3-Visualization-with-cytoUMAP">cytoUMAP</a></li>
       </ul>
     </li>
     <li><a href="#Added functions">Functions to add</a></li>
