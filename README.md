@@ -25,6 +25,7 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
         <li><a href="#3-#Visualization-with-cytoUMAP">cytoUMAP</a></li>
       </ul>
     </li>
+    <li><a href="#Added functions">Functions to add</a></li>
     <li><a href="#contact">Contact</a></li>
     </ol>
 
@@ -204,6 +205,13 @@ This function runs UMAP (from the `uwot` package) using the specified range of n
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+## Added functions 
+
+Some things I am planning on adding to make the functions more widely applicable: 
+
+* Create user-defined channels to exclude from normalization 
+* Increase the number of timepoints (>3) that can be analyzed 
+* Fix cytoUMAP so that the number of channels is more broadly applicable
 
 ## Contact 
 
