@@ -127,13 +127,14 @@ source("cytoUMAP")
 ```
 cytoNorm(ref_bead_foldername = "day1",
          bead_foldername = "day2",
-         bead_foldername2 = "day3")
+         bead_foldername2 = "day3",
+         plot_norm = TRUE)
 
 cytoTrans(ref_flow_foldername = "day1",
           flow_foldername_1 = "day2",
           flow_foldername_2 = "day3",
           normalize = TRUE, 
-          plot_norm = TRUE)
+          plot_norm = FALSE)
           
 cytoUMAP(min_nn = 50,
          max_nn = 100,
@@ -164,6 +165,8 @@ Normalization is not performed on non-fluorescent parameters (i.e., FSC, SSC, or
 * `bead_foldername` a character vector of the folder name containing the second acquisition timepoint (which will be normalized)
 
 * `bead_foldername2` *(optional)* a character vector of the folder name containing the third acquisition timepoint (which will be normalized) 
+
+* `plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE.
 
 
 
