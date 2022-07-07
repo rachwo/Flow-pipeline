@@ -188,7 +188,7 @@ This function reads each csv file containing the exported flow cytometry data an
 
 ### 3. Visualization with ```cytoUMAP```
 
-This function runs UMAP (from the `uwot` package) using the specified range of neighbours and the minimum neighbour distance. The output are UMAP plots in a new folder within the Parent directory called `Neighbour_plots`. *NOTE: downsampling is recommended for large (i.e., >20,000 events) datasets.
+This function runs UMAP (from the `uwot` package) using the specified range of neighbours and the minimum neighbour distance. The output are UMAP plots in a new folder within the Parent directory called `Neighbour_plots`. **NOTE: downsampling is highly recommended for large (i.e., >20,000 events) datasets.**
 
 #### Parameters 
 
