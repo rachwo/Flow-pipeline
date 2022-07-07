@@ -1,4 +1,3 @@
-
 # read in flow files and perform normalization and arcsinh transformation
 
 cytoTrans <- function(ref_flow_foldername,
@@ -30,7 +29,11 @@ cytoTrans <- function(ref_flow_foldername,
   mat <- inner_join(mat, norm.fact[,c(1:14,16)], by = "Folder")
   
   # multiply unnormalized data by normalization factor
-  mat.norm <- mat[1:14]*mat[17:30]
+  len <- length(norm.fact) - 2
+  norm.len <- len + length(norm.fact)
+  
+  mat.norm <- mat[1:len]*mat[(length(norm.fact)+1):(norm.len)]
+  #mat.norm <- mat[1:14]*mat[17:30]
   mat.norm$Well <- mat$Well
   mat.norm$Folder <- mat$Folder
   
