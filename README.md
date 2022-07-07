@@ -137,9 +137,9 @@ This function reads each csv file containing the exported flow cytometry data an
 
 `flow_foldername_2` *(optional)* the name of the folder containing the third acquisition timepoint
 
-`normalize` a logical value. If `TRUE`, per-channel normalization will be performed. If `FALSE`, per-channel normalization will not be performed. Default is FALSE. 
+`normalize` a logical value. If TRUE, per-channel normalization will be performed. Default is FALSE. 
 
-`plot_norm` a logical value. If `TRUE`, normalized and unnormalized histograms will be produced for each channel and for each sample. If `FALSE`, plotting function will be turned off. Default is FALSE. 
+`plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE. 
 
 
 
