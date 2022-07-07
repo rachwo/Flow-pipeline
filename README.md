@@ -212,8 +212,8 @@ This function runs UMAP (from the `uwot` package) using the specified range of n
 Some things I am planning on adding to make the functions more widely applicable: 
 
 * Create user-defined channels to exclude from normalization 
-* Increase the number of timepoints (>3) that can be analyzed 
-* Fix cytoUMAP so that the number of channels is more broadly applicable
+* Increase the number of timepoints (>3) that can be analyzed
+* Make more user friendly (eg, produce error if Beads.csv does not match sample csv)
 
 
 
