@@ -7,29 +7,26 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
 ## Table of contents 
 <ol>
     <li>
-      <a href="#a-few-notes-before-starting">Before starting</a>
+      <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#directory-hierarchy">Directory hierarchy</a></li>
-        <li><a href="#r-packages">R packages</a></li>
+        <li><a href="#r-packages">Required R packages</a></li>
         <li><a href="#input-file-format">Input file format</a></li>
       </ul>
     </li>
+    <li><a href="#quick-start-guide">Quick start guide</a></li>
     <li>
-      <a href="#getting-started">Getting Started</a>
+      <a href="#running-the-analysis">Running the analysis</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#sample-normalization-with-cytonorm-optional">cytoNorm</a></li>
+        <li><a href="#arcsinh-transformation-with-cytotrans">cytoTrans</a></li>
+        <li><a href="#Visualization-with-cytoUMAP">cytoUMAP</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
     </ol>
 
-## A few notes before starting
+## Getting started
 
 ### Directory hierarchy
 
@@ -174,7 +171,12 @@ This function reads each csv file containing the exported flow cytometry data an
 
 `plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE. 
 
+## Visualization with ```cytoUMAP```
 
+
+## Contact 
+
+Rachel Wong - rwong[at]bccrc.ca
 
 
 
