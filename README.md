@@ -6,7 +6,7 @@ as well as UMAP plots.
 
 Your directory hierarchy should contain files similar to this:
 
-
+```bash
 Parent 
   |-- Flow folder 1 (CONTAINS REFERENCE BEADS)
   |    |-- Beads.csv
@@ -25,3 +25,4 @@ Parent
        |-- folder_3_csv1.csv
        |-- folder_3_csv2.csv
        `-- folder_3_csv3.csv
+```
