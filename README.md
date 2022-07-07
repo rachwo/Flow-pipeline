@@ -6,7 +6,7 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
 
 
 
-## Table of contents 
+## Table of Contents 
 <ol>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -182,7 +182,6 @@ This function reads each csv file containing the exported flow cytometry data an
 * `normalize` a logical value. If TRUE, per-channel normalization will be performed. Default is FALSE. 
 
 * `plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE. 
-
 
 
 
