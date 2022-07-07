@@ -5,7 +5,7 @@ This is a pipeline for merging, normalizing, transforming and visualizing flow c
 The input is csv files which are exported in **scale value** from FlowJo software. The output is normalized and transformed matrices for each flow cytometry channel, as well as UMAP plots.
 
 
-## A note on directories before starting
+## A note on requirements before starting
 
 To begin, your directory hierarchy should look similar to this. Each tube acquired by flow should be exported in **scale value** from FlowJo (flow_sample_X.csv) and should be contained in a folder with all other samples collected on that day. 
 
@@ -33,6 +33,22 @@ Parent
        └── folder_3_csv3.csv
 ```
 
+In addition, the following R packages are required: 
+
+```
+library(dplyr)
+library(tidyr)
+library(flowCore)
+library(doParallel)
+library(uwot)
+library(ggplot2)
+library(ggridges)
+library(here)
+library(ggridges)
+
+```
+
+
 ## Input file format 
 
 Your data should be exported as scale values from FlowJo. This should generate a csv file which contains rows as single cells and columns as flow cytometry channels. 
@@ -44,16 +60,61 @@ FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 27329.4	26415.7	100240	21901.7	20629.2	79034.8	34.0306
 ```
 
-## Getting started
+# Quick start guide
 
 Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. 
 
 *NOTE: If normalization is not required, then the ```cytoNorm``` function does not need to be run*
 
+Here is an example of how to run the analysis:
 
-### Sample normalization with ```cytoNorm``` (optional) 
+Load the required packages:
 
-This function 
+```
+library(dplyr)
+library(tidyr)
+library(flowCore)
+library(doParallel)
+library(uwot)
+library(ggplot2)
+library(ggridges)
+library(here)
+library(ggridges)
+
+```
+
+Running the full analysis (normalization, transformation and plotting) using flow cytometry data from 3 different timepoints:
+
+```
+cytoNorm(ref_bead_foldername = "day1",
+         bead_foldername = "day2",
+         bead_foldername2 = "day3")
+
+cytoTrans(ref_flow_foldername = "day1",
+          flow_foldername_1 = "day2",
+          flow_foldername_2 = "day3",
+          normalize = TRUE, 
+          plot_norm = TRUE)
+          
+cytoUMAP(min_nn = 50,
+         max_nn = 100,
+         interval = 10,
+         min_dist = 0.1,
+         downsample = 100)
+```
+
+This will generate a new folder ```Neighbour_plots``` which will contain several UMAP plots iterated over a range of specified numbers of neighbours for the specified minimum distance. 
+
+
+# Running the analysis
+
+### Sample normalization with ```cytoNorm``` *(optional)*
+
+This function read the Bead.csv file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. 
+
+### Parameters
+
+
 
 
 
