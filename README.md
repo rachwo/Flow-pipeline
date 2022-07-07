@@ -110,7 +110,15 @@ library(here)
 library(ggridges)
 ```
 
-2. Run the full analysis (normalization, transformation and plotting) using flow cytometry data from 3 different timepoints. Make sure that you `setwd()` as the Parent directory (see **Directory hierarchy** above).
+2. Load the source code:
+
+```
+source(cytoNorm)
+source(cytoTrans)
+source(cytoUMAP)
+```
+
+3. Run the full analysis (normalization, transformation and plotting) using flow cytometry data from 3 different timepoints. Make sure that you `setwd()` as the Parent directory (see **Directory hierarchy** above).
 
 ```
 cytoNorm(ref_bead_foldername = "day1",
@@ -146,11 +154,11 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 
 #### Parameters
 
-`ref_bead_foldername` a character vector of the folder name containing the first acquisition timepoint (which will be used for normalization)
+* `ref_bead_foldername` a character vector of the folder name containing the first acquisition timepoint (which will be used for normalization)
 
-`bead_foldername` a character vector of the folder name containing the second acquisition timepoint (which will be normalized)
+* `bead_foldername` a character vector of the folder name containing the second acquisition timepoint (which will be normalized)
 
-`bead_foldername2` *(optional)* a character vector of the folder name containing the third acquisition timepoint (which will be normalized) 
+* `bead_foldername2` *(optional)* a character vector of the folder name containing the third acquisition timepoint (which will be normalized) 
 
 
 ### arcsinh transformation with ```cytoTrans```
@@ -159,15 +167,15 @@ This function reads each csv file containing the exported flow cytometry data an
 
 #### Parameters 
 
-`ref_flow_foldername` a character vector of the folder name containing the first acquisition timepoint
+* `ref_flow_foldername` a character vector of the folder name containing the first acquisition timepoint
 
-`flow_foldername_1` a character vector of the folder name containing the second acquisition timepoint
+* `flow_foldername_1` a character vector of the folder name containing the second acquisition timepoint
 
-`flow_foldername_2` *(optional)* the name of the folder containing the third acquisition timepoint
+* `flow_foldername_2` *(optional)* the name of the folder containing the third acquisition timepoint
 
-`normalize` a logical value. If TRUE, per-channel normalization will be performed. Default is FALSE. 
+* `normalize` a logical value. If TRUE, per-channel normalization will be performed. Default is FALSE. 
 
-`plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE. 
+* `plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE. 
 
 ### Visualization with ```cytoUMAP```
 
