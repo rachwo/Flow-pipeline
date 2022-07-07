@@ -67,9 +67,10 @@ Once you have acquired your flow cytometry data and organized it as outlined abo
 
 *NOTE: If normalization is not required, then the ```cytoNorm``` function does not need to be run*
 
-Here is an example of how to run the analysis:
 
-Load the required packages:
+### Here is an example of how to run the analysis:
+
+1. Load the required packages:
 
 ```
 library(dplyr)
@@ -83,7 +84,7 @@ library(here)
 library(ggridges)
 ```
 
-Running the full analysis (normalization, transformation and plotting) using flow cytometry data from 3 different timepoints:
+2. Run the full analysis (normalization, transformation and plotting) using flow cytometry data from 3 different timepoints. Make sure that you `setwd()` as the Parent directory (see **Directory hierarchy** above).
 
 ```
 cytoNorm(ref_bead_foldername = "day1",
@@ -110,14 +111,29 @@ This will generate a new folder ```Neighbour_plots``` which will contain several
 
 ## Sample normalization with ```cytoNorm``` *(optional)*
 
-This function reads the Bead.csv file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. 
+This function reads the Beads.csv file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. *NOTE: In order for your bead file to be recognized, it must be saved as Beads.csv.* 
+
+Normalization is not performed on FSC, SSC, or Time parameters. Normalization will not be performed on viability dyes provided that they were labelled as "DAPI" or "Live" during sample acquisition.
+
 
 ### Parameters
 
-`ref_bead_foldername` the name of the folder containing the first acquisition timepoint (which will be used for normalization)
-`bead_foldername` the name of the folder containing the second acquisition timepoint (which will be normalized)
-`bead_foldername2` *(optional)* the name of the folder containing the third acquisition timepoint (which will be normalized) 
+`ref_bead_foldername` a character vector of the folder name containing the first acquisition timepoint (which will be used for normalization)
+`bead_foldername` a character vector of the folder name containing the second acquisition timepoint (which will be normalized)
+`bead_foldername2` *(optional)* a character vector of the folder name containing the third acquisition timepoint (which will be normalized) 
 
+
+## arcsinh transformation with ```cytoTrans```
+
+This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation will also be performed. 
+
+### Parameters 
+
+`ref_flow_foldername` a character vector of the folder name containing the first acquisition timepoint
+`flow_foldername_1` a character vector of the folder name containing the second acquisition timepoint
+`flow_foldername_2` *(optional)* the name of the folder containing the third acquisition timepoint
+`normalize` a logical value. If `TRUE`, per-channel normalization will be performed. If `FALSE`, per-channel normalization will not be performed. Default is FALSE. 
+`plot_norm` a logical value. If `TRUE`, normalized and unnormalized histograms will be produced for each channel and for each sample. If `FALSE`, plotting function will be turned off. Default is FALSE. 
 
 
 
