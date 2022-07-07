@@ -4,6 +4,8 @@ This is a pipeline for merging, normalizing, transforming and visualizing flow c
 
 The input is csv files which are exported in **scale value** from FlowJo software. The output is normalized and transformed matrices for each flow cytometry channel, as well as UMAP plots.
 
+
+
 ## Table of contents 
 <ol>
     <li>
@@ -25,6 +27,9 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
     </li>
     <li><a href="#contact">Contact</a></li>
     </ol>
+
+
+
 
 ## Getting started
 
@@ -55,7 +60,6 @@ Parent
        └── folder_3_csv3.csv
 ```
 
-
 ### R packages 
 
 In addition, the following R packages are required: 
@@ -72,7 +76,6 @@ library(here)
 library(ggridges)
 ```
 
-
 ### Input file format 
 
 Your data should be exported as scale values from FlowJo. This should generate a csv file which contains rows as single cells and columns as flow cytometry channels. 
@@ -85,6 +88,7 @@ FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 ## Quick start guide
@@ -143,6 +147,7 @@ This will generate a new folder ```Neighbour_plots``` which will contain several
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+
 ## Running the analysis
 
 ### Sample normalization with ```cytoNorm``` *(optional)*
@@ -161,6 +166,7 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 * `bead_foldername2` *(optional)* a character vector of the folder name containing the third acquisition timepoint (which will be normalized) 
 
 
+
 ### arcsinh transformation with ```cytoTrans```
 
 This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation will also be performed. 
@@ -177,10 +183,14 @@ This function reads each csv file containing the exported flow cytometry data an
 
 * `plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE. 
 
+
+
+
 ### Visualization with ```cytoUMAP```
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 ## Contact 
