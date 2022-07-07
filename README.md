@@ -4,9 +4,7 @@ This is a pipeline for merging, normalizing, transforming and visualizing flow c
 
 The input is csv files which are exported in **scale value** from FlowJo software. The output is normalized and transformed matrices for each flow cytometry channel, as well as UMAP plots.
 
-<!-- TABLE OF CONTENTS -->
-  <summary>Table of Contents</summary>
-  <ol>
+## Table of contents 
     <li>
       <a href="#a-few-notes-before-starting">Before starting</a>
       <ul>
@@ -28,7 +26,6 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
 
 ## A few notes before starting
 
