@@ -87,7 +87,7 @@ FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-# Quick start guide
+## Quick start guide
 
 Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. 
 
@@ -135,16 +135,16 @@ This will generate a new folder ```Neighbour_plots``` which will contain several
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-# Running the analysis
+## Running the analysis
 
-## Sample normalization with ```cytoNorm``` *(optional)*
+### Sample normalization with ```cytoNorm``` *(optional)*
 
 This function reads the Beads.csv file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. *NOTE: In order for your bead file to be recognized, it must be saved as Beads.csv.* 
 
 Normalization is not performed on FSC, SSC, or Time parameters. Normalization will not be performed on viability dyes provided that they were labelled as "DAPI" or "Live" during sample acquisition.
 
 
-### Parameters
+#### Parameters
 
 `ref_bead_foldername` a character vector of the folder name containing the first acquisition timepoint (which will be used for normalization)
 
@@ -153,11 +153,11 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 `bead_foldername2` *(optional)* a character vector of the folder name containing the third acquisition timepoint (which will be normalized) 
 
 
-## arcsinh transformation with ```cytoTrans```
+### arcsinh transformation with ```cytoTrans```
 
 This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation will also be performed. 
 
-### Parameters 
+#### Parameters 
 
 `ref_flow_foldername` a character vector of the folder name containing the first acquisition timepoint
 
@@ -169,7 +169,7 @@ This function reads each csv file containing the exported flow cytometry data an
 
 `plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE. 
 
-## Visualization with ```cytoUMAP```
+### Visualization with ```cytoUMAP```
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
