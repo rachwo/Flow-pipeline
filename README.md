@@ -9,9 +9,11 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#a-few-notes-before-starting">About The Project</a>
+      <a href="#a-few-notes-before-starting">Before starting</a>
       <ul>
-        <li><a href="#Parameters">Built With</a></li>
+        <li><a href="#directory-hierarchy">Directory hierarchy</a></li>
+        <li><a href="#dr-packages">R packages</a></li>
+        <li><a href="#input-file-format">Input file format</a></li>
       </ul>
     </li>
     <li>
@@ -31,7 +33,6 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
 </details>
 
 ## A few notes before starting
-<!-- A few notes before starting -->
 
 ### Directory hierarchy
 
@@ -76,6 +77,7 @@ library(here)
 library(ggridges)
 ```
 
+<p align="right">(<a href="#top">back to top</a>)</p>
 ### Input file format 
 
 Your data should be exported as scale values from FlowJo. This should generate a csv file which contains rows as single cells and columns as flow cytometry channels. 
@@ -86,14 +88,14 @@ FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 28336.9	27103.6	100493	13685.1	12352.3	75985.5	19.9199
 27329.4	26415.7	100240	21901.7	20629.2	79034.8	34.0306
 ```
-
+<p align="right">(<a href="#top">back to top</a>)</p>
 # Quick start guide
 
 Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. 
 
 *NOTE: If normalization is not required, then the ```cytoNorm``` function does not need to be run*
 
-
+<p align="right">(<a href="#top">back to top</a>)</p>
 ### Here is an example of how to run the analysis:
 
 1. Load the required packages:
@@ -134,7 +136,7 @@ This will generate a new folder ```Neighbour_plots``` which will contain several
 
 
 # Running the analysis
-
+<p align="right">(<a href="#top">back to top</a>)</p>
 ## Sample normalization with ```cytoNorm``` *(optional)*
 
 This function reads the Beads.csv file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. *NOTE: In order for your bead file to be recognized, it must be saved as Beads.csv.* 
@@ -143,7 +145,6 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 
 
 ### Parameters
-<!-- Parameters -->
 
 `ref_bead_foldername` a character vector of the folder name containing the first acquisition timepoint (which will be used for normalization)
 
@@ -153,7 +154,7 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 
 
 
-
+<p align="right">(<a href="#top">back to top</a>)</p>
 ## arcsinh transformation with ```cytoTrans```
 
 This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation will also be performed. 
