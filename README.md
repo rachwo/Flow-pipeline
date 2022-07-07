@@ -37,16 +37,26 @@ Parent
 
 Your data should be exported as scale values from FlowJo. This should generate a csv file which contains rows as single cells and columns as flow cytometry channels. 
 
-## Getting started
-
-Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. 
-
 ```
 FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 38575.1	38344.6	104623	22137.9	19825.3	84172.8	9.34196
 28336.9	27103.6	100493	13685.1	12352.3	75985.5	19.9199
 27329.4	26415.7	100240	21901.7	20629.2	79034.8	34.0306
 ```
+
+## Getting started
+
+Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. 
+
+*NOTE: If normalization is not required, then the ```cytoNorm``` function does not need to be run*
+
+##### Sample normalization with ```cytoNorm``` (optional) 
+
+This function 
+
+
+
+
 
 
 
