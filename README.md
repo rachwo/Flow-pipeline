@@ -95,7 +95,7 @@ FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 
 Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. Sample data to run the analysis can be found in the `Parent` folder.
 
-*NOTE: If normalization is not required, then the* ```cytoNorm``` *function does not need to be run*
+**NOTE: If normalization is not required, then the** ```cytoNorm``` **function does not need to be run**
 
 
 ### Here is an example of how to run the analysis:
@@ -152,9 +152,9 @@ This will generate a new folder ```Neighbour_plots``` which will contain several
 
 ### 1. Sample normalization with ```cytoNorm``` *(optional)*
 
-This function reads the `Beads.csv` file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. *NOTE: In order for your bead file to be recognized, it must be saved as* `Beads.csv`. 
+This function reads the `Beads.csv` file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. **NOTE: In order for your bead file to be recognized, it must be saved as** `Beads.csv`. 
 
-Normalization is not performed on FSC, SSC, or Time parameters. Normalization will not be performed on viability dyes provided that they were labelled as "DAPI" or "Live" during sample acquisition.
+Normalization is not performed on non-fluorescent parameters (i.e., FSC, SSC, or Time parameters). Normalization will not be performed on viability dyes provided that they were labelled as "DAPI" or "Live" during the sample acquisition steps.
 
 
 #### Parameters
