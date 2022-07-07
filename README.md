@@ -37,7 +37,7 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
 
 To begin, your directory hierarchy should look similar to this. Each tube acquired by flow should be exported in **scale value** from FlowJo (flow_sample_X.csv) and should be contained in a folder with all other samples collected on that day. 
 
-*NOTE: if normalization is not needed, then the `Beads.csv` files acquired at each timepoint are not required). However, if you choose to normalize your data, the bead data must be saved as `Beads.csv`, and there must be one `Beads.csv` file per acquisition folder*
+*NOTE: if normalization is not needed, then the *`Beads.csv` *files acquired at each timepoint are not required). However, if you choose to normalize your data, the bead data must be saved as *`Beads.csv`, *and there must be one `Beads.csv` file per acquisition folder*.
 
 ```
 Parent 
@@ -95,7 +95,7 @@ FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 
 Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. 
 
-*NOTE: If normalization is not required, then the ```cytoNorm``` function does not need to be run*
+*NOTE: If normalization is not required, then the* ```cytoNorm``` *function does not need to be run*
 
 
 ### Here is an example of how to run the analysis:
@@ -152,7 +152,7 @@ This will generate a new folder ```Neighbour_plots``` which will contain several
 
 ### 1. Sample normalization with ```cytoNorm``` *(optional)*
 
-This function reads the `Beads.csv` file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. *NOTE: In order for your bead file to be recognized, it must be saved as `Beads.csv`.* 
+This function reads the `Beads.csv` file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. *NOTE: In order for your bead file to be recognized, it must be saved as* `Beads.csv`. 
 
 Normalization is not performed on FSC, SSC, or Time parameters. Normalization will not be performed on viability dyes provided that they were labelled as "DAPI" or "Live" during sample acquisition.
 
