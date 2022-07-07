@@ -28,11 +28,6 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
     <li><a href="#contact">Contact</a></li>
     </ol>
 
-<ol>
-    <li> ### one thing 
-    and some additional things about this thing</i>
-
-</ol>
 
 
 ## Getting started
@@ -121,9 +116,9 @@ library(ggridges)
 2. Load the source code:
 
 ```
-source(cytoNorm)
-source(cytoTrans)
-source(cytoUMAP)
+source("cytoNorm")
+source("cytoTrans")
+source("cytoUMAP")
 ```
 
 3. Run the full analysis (normalization, transformation and plotting) using flow cytometry data from 3 different timepoints. Make sure that you `setwd()` as the Parent directory (see **Directory hierarchy** above).
