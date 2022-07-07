@@ -20,9 +20,9 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
     <li>
       <a href="#running-the-analysis">Running the analysis</a>
       <ul>
-        <li><a href="#sample-normalization-with-cytonorm-optional">cytoNorm</a></li>
-        <li><a href="#arcsinh-transformation-with-cytotrans">cytoTrans</a></li>
-        <li><a href="#Visualization-with-cytoUMAP">cytoUMAP</a></li>
+        <li><a href="#1-sample-normalization-with-cytonorm-optional">cytoNorm</a></li>
+        <li><a href="#2-#arcsinh-transformation-with-cytotrans">cytoTrans</a></li>
+        <li><a href="#3-#Visualization-with-cytoUMAP">cytoUMAP</a></li>
       </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
@@ -168,7 +168,7 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 
 ### 2. arcsinh transformation with ```cytoTrans```
 
-This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation will also be performed. 
+This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation (from the `flowCore` package) will also be performed. 
 
 #### Parameters 
 
@@ -185,6 +185,20 @@ This function reads each csv file containing the exported flow cytometry data an
 
 
 ### 3. Visualization with ```cytoUMAP```
+
+This function runs UMAP (from the `uwot` package) using the specified range of neighbours and the minimum neighbour distance. The output are UMAP plots in a new folder within the Parent directory called `Neighbour_plots`.
+
+#### Parameters 
+
+* `min_nn` an integer indicating the minimum number of neighbours. min_nn must be >= 2.
+
+* `max_nn` an integer indicating the maximum number of neighbours. 
+
+* `interval` an integer indicating the intervals to test between min_nn and max_nn. For example, if min_nn = 50, max_nn = 100, and interval = 10, then 5 plots will be generated indicating 50, 60, 70, 80, 90, and 100 neighbours.
+
+* `min_dist` an integer indicating the minimum neighbour distance. Value must be > 0. 
+
+* `downsample` an integer indicating the number of cells to downsample on (performed per sample). 
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
