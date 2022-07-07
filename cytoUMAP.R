@@ -39,11 +39,12 @@ cytoUMAP <- function(min_nn,
       
     assign(x = "matrix.down", value = matrix.d, envir = parent.frame())
     }
+    
     else if (is.null(downsample)){
     matrix.d <- matrix
     }
     
-    # parallel
+    # parallellize
     myCluster <- makeCluster(10, type = "FORK") 
     registerDoParallel(myCluster)
     
