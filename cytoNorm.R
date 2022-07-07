@@ -14,7 +14,7 @@ cytoNorm <- function(ref_bead_foldername,
   
   # this is only run if there is an additional bead dataset to be normalized
   if(!is.null(bead_foldername2)){
-    beads.2 <- rread.csv(here(bead_foldername2, "Beads.csv")) %>%  
+    beads.2 <- read.csv(here(bead_foldername2, "Beads.csv")) %>%  
       select(-contains(c("FSC","SSC","Time","GFP","DAPI","Live")))
   }
   
