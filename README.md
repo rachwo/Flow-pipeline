@@ -150,7 +150,7 @@ This will generate a new folder ```Neighbour_plots``` which will contain several
 
 ## Running the analysis
 
-### Sample normalization with ```cytoNorm``` *(optional)*
+### 1. Sample normalization with ```cytoNorm``` *(optional)*
 
 This function reads the Beads.csv file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. *NOTE: In order for your bead file to be recognized, it must be saved as Beads.csv.* 
 
@@ -167,7 +167,7 @@ Normalization is not performed on FSC, SSC, or Time parameters. Normalization wi
 
 
 
-### arcsinh transformation with ```cytoTrans```
+### 2. arcsinh transformation with ```cytoTrans```
 
 This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation will also be performed. 
 
@@ -186,7 +186,7 @@ This function reads each csv file containing the exported flow cytometry data an
 
 
 
-### Visualization with ```cytoUMAP```
+### 3. Visualization with ```cytoUMAP```
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
