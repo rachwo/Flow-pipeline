@@ -1,6 +1,6 @@
 # Pipeline for flow cytometry analysis
 
-This is a pipeline for merging, transforming, normalizing and visualizing flow cytometry data acquired on the LSR II / Symphony. This pipeline allows you to merge and normalize flow cytometry data collected across different acquisition days/timepoints (up to 3 different days/timepoints, though I am working on expanding this!). 
+This is a pipeline for merging, normalizing, transforming and visualizing flow cytometry data in R. This pipeline allows you to merge and normalize flow cytometry data collected across different acquisition days/timepoints (up to 3 different days/timepoints, though I am working on expanding this!). 
 
 The input is csv files which are exported in **scale value** from FlowJo software. The output is normalized and transformed matrices for each flow cytometry channel, as well as UMAP plots.
 
