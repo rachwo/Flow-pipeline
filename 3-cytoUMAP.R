@@ -11,6 +11,7 @@ cytoUMAP <- function(min_nn,
                      min_dist, 
                      downsample = NULL){
   
+  
   # generate error messages
   if(min_nn < 2){
     print("ERROR: Minimum number of neighbours must be >=2")
@@ -26,6 +27,7 @@ cytoUMAP <- function(min_nn,
   
   else if(min_nn >= 2 && max_nn > interval && min_dist > 0) {
     
+    
     # get range of neighbours to test
     range <- seq(from = min_nn, to = max_nn, by = interval)
     
@@ -34,8 +36,8 @@ cytoUMAP <- function(min_nn,
     
     # downsample matrix (optional)
     if (!is.null(downsample)) {
-      mat.down <- with(matrix, ave(matrix[,1], Well, FUN=function(x) {sample.int(length(x), replace = FALSE)}))
-      matrix.d <- matrix[mat.down <= as.numeric(downsample),]
+      mat.down <- with(matrix, ave(matrix[, 1], Well, FUN=function(x) {sample.int(length(x), replace = FALSE)}))
+      matrix.d <- matrix[mat.down <= as.numeric(downsample), ]
       
       assign(x = "matrix.down", value = matrix.d, envir = parent.frame())
     }
@@ -49,28 +51,37 @@ cytoUMAP <- function(min_nn,
     registerDoParallel(myCluster)
     
     # run umap
-    umap.out <- foreach(x = range) %dopar% umap(matrix.d, n_neighbors = x, min_dist = min_dist, ret_model=TRUE, verbose=T)
+    umap.out <- foreach(x = range) %dopar% uwot::umap(matrix.d, n_neighbors = x, 
+                                                      min_dist = min_dist, 
+                                                      ret_model = TRUE, 
+                                                      verbose = T)
+    
+    assign(x = "umap", value = umap.out, envir = parent.frame())
     
     # generate plots 
-    for (i in 1:length(umap.out)){
-      p = ggplot(data=as.data.frame(umap.out[[i]]$embedding), aes(x=V1, y=V2)) +
-        geom_bin2d(bins=256) + 
-        scale_fill_viridis_c(option = "A", trans = "sqrt") + 
-        scale_x_continuous(expand = c(0.1,0)) + 
-        scale_y_continuous(expand = c(0.1,0)) +
+    for (i in 1:length(umap.out)) {
+      p = ggplot(data = as.data.frame(umap.out[[i]]$embedding), aes(x = V1, y = V2, col = matrix.down$Folder)) +
+        geom_point(size = 0.5, alpha = 0.5) +
+        scale_x_continuous(expand = c(0.1, 0)) + 
+        scale_y_continuous(expand = c(0.1, 0)) +
         labs(x = "UMAP-1", 
-             y = "UMAP-2") + 
+             y = "UMAP-2",
+             color = "Acquisition day") + 
         coord_fixed() + 
         theme_minimal() + 
-        theme(panel.grid.major=element_blank(),
-              panel.grid.minor=element_blank()) + 
+        theme(panel.grid.major = element_blank(),
+              panel.grid.minor = element_blank()) + 
         ggtitle(umap.out[[i]][["n_neighbors"]])
       
-      ggsave(p, 
-             path = "./Neighbour_plots",
-             filename = paste("UMAP",umap.out[[i]][["n_neighbors"]],"neighbours.png"), width=14, height=10, units="cm")
+      print(p)
+      
+      ggsave(p, path = "./Neighbour_plots",
+             filename = paste("UMAP", umap.out[[i]][["n_neighbors"]], "neighbours.png"), 
+             width=14, height=10, units="cm")
+      
     }
     
     on.exit(stopCluster(myCluster))
+    
   }
 }
