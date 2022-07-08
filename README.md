@@ -2,7 +2,7 @@
 
 This is a pipeline for merging, normalizing, transforming and visualizing flow cytometry data in R. This pipeline allows you to merge and normalize flow cytometry data collected across different acquisition timepoints. 
 
-The input is csv files which are exported in **scale value** from FlowJo software. The output is normalized and transformed matrices for each flow cytometry channel, as well as UMAP plots.
+The input is csv files (gated on Viable cells) which are exported in **scale value** from FlowJo software. The output is normalized and transformed matrices for each flow cytometry channel, as well as UMAP plots.
 
 
 
@@ -35,7 +35,7 @@ The input is csv files which are exported in **scale value** from FlowJo softwar
 
 ### Directory hierarchy
 
-To begin, your directory hierarchy should look similar to this. Each tube acquired by flow should be exported in **scale value** from FlowJo (flow_sample_X.csv) and should be contained in a folder with all other samples collected on that day. 
+To begin, your directory hierarchy should look similar to this. Viable cells for each sample acquired by flow should be exported in **scale value** from FlowJo (flow_sample_X.csv) and should be contained in a folder with all other samples collected on that day. 
 
 **NOTE:** if normalization is not needed, then the `Beads.csv` files acquired at each timepoint are not required). However, if you choose to normalize your data, the bead data must be saved as `Beads.csv`, and there must be one `Beads.csv` file per acquisition folder.
 
