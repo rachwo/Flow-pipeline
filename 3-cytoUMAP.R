@@ -56,7 +56,7 @@ cytoUMAP <- function(min_nn,
                                                       ret_model = TRUE, 
                                                       verbose = T)
     
-    assign(x = "umap", value = umap.out, envir = parent.frame())
+    assign(x = "umap.out", value = umap.out, envir = parent.frame())
     
     # generate plots 
     for (i in 1:length(umap.out)) {
