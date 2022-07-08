@@ -163,6 +163,13 @@ Normalization is not performed on non-fluorescent parameters (i.e., FSC, SSC, or
 
 * `exclude` a character vector of the channels you wish to exclude. For example c("CD8","CD7") will remove channels containing CD8 or CD7 in the channel name. 
 
+
+An example of the output for a few channels is shown below. 
+
+![CD1a normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Bead-normalization/CD1a.png)
+![CD13 normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Bead-normalization/CD13.png)
+
+
 ### 2. arcsinh transformation with ```cytoTrans```
 
 This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation (from the `flowCore` package) will also be performed. Specific channels may be removed from the UMAP plot using the `exclude` parameter as described below. By default, non-fluorescent channels such as FSC, SSC and Time are removed. Viability dyes are also removed provided that they are labelled as "DAPI", "Live", or "Viability".
