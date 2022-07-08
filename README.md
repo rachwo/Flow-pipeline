@@ -1,6 +1,6 @@
 # Pipeline for flow cytometry analysis
 
-This is a pipeline for merging, normalizing, transforming and visualizing flow cytometry data in R. This pipeline allows you to merge and normalize flow cytometry data collected across different acquisition timepoints (currently up to 3 different timepoints, though I am working on expanding this!). 
+This is a pipeline for merging, normalizing, transforming and visualizing flow cytometry data in R. This pipeline allows you to merge and normalize flow cytometry data collected across different acquisition timepoints. 
 
 The input is csv files which are exported in **scale value** from FlowJo software. The output is normalized and transformed matrices for each flow cytometry channel, as well as UMAP plots.
 
@@ -93,7 +93,7 @@ FSC-A	FSC-H	FSC-W	SSC-A	SSC-H	SSC-W	CD8-APC
 
 ## Quick start guide
 
-Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. Sample data to run the analysis can be found in the `Parent` folder.
+Once you have acquired your flow cytometry data and organized it as outlined above, you can execute 3 functions which will perform different normalization and transformation tasks. In order, these include ```cytoNorm```, ```cytoTrans```, and ```cytoUMAP```. Sample data to run the analysis can be found in the `Parent` folder of this repository.
 
 **NOTE:** If normalization is not required, then the ```cytoNorm``` function does not need to be run.
 
@@ -122,19 +122,16 @@ source("cytoTrans")
 source("cytoUMAP")
 ```
 
-3. Run the full analysis (normalization, transformation and plotting) using flow cytometry data from 3 different timepoints. Make sure that you `setwd()` as the Parent directory (see <a href="#directory-hierarchy">Directory hierarchy</a> above).
+3. Run the full analysis (normalization, transformation and plotting) using flow cytometry data from multiple different timepoints. Make sure that you `setwd()` as the Parent directory (see <a href="#directory-hierarchy">Directory hierarchy</a> above).
 
 ```
 cytoNorm(ref_bead_foldername = "day1",
-         bead_foldername = "day2",
-         bead_foldername2 = "day3",
-         plot_norm = TRUE)
+         plot_norm = TRUE,
+         exclude = NULL)
 
-cytoTrans(ref_flow_foldername = "day1",
-          flow_foldername_1 = "day2",
-          flow_foldername_2 = "day3",
-          normalize = TRUE, 
-          plot_norm = FALSE)
+cytoTrans(normalize = TRUE, 
+          plot_norm = FALSE,
+          exclude = NULL)
           
 cytoUMAP(min_nn = 50,
          max_nn = 100,
@@ -155,38 +152,28 @@ This will generate a new folder ```Neighbour_plots``` which will contain several
 
 This function reads the `Beads.csv` file stored on each acquisition day and generates a per-channel normalization factor based on sample median. The normalization beads should have been stained with the same flow cytometry mastermix for each sample, and thus the csv file should have the same column names as your samples. **NOTE:** In order for your bead file to be recognized, it must be saved as `Beads.csv`. 
 
-Normalization is not performed on non-fluorescent parameters (i.e., FSC, SSC, or Time parameters). Normalization will not be performed on viability dyes provided that they were labelled as "DAPI" or "Live" during the sample acquisition steps.
+Normalization is not performed on non-fluorescent parameters (i.e., FSC, SSC, or Time parameters). Normalization will not be performed on viability dyes provided that they were labelled as "DAPI", "Live", or "Viability" during the sample acquisition steps. Specific channels can also be removed (see `exclude` in the parameters below.)
 
 
 #### Parameters
 
 * `ref_bead_foldername` a character vector of the folder name containing the first acquisition timepoint (which will be used for normalization)
 
-* `bead_foldername` a character vector of the folder name containing the second acquisition timepoint (which will be normalized)
-
-* `bead_foldername2` *(optional)* a character vector of the folder name containing the third acquisition timepoint (which will be normalized) 
-
 * `plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE.
 
-
+* `exclude` a character vector of the channels you wish to exclude. For example c("CD8","CD7") will remove channels containing CD8 or CD7 in the channel name. 
 
 ### 2. arcsinh transformation with ```cytoTrans```
 
-This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation (from the `flowCore` package) will also be performed. 
+This function reads each csv file containing the exported flow cytometry data and merges each file according to the acquisition timepoint. Optional per-channel normalization will be performed if required. Arcsinh transformation (from the `flowCore` package) will also be performed. Specific channels may be removed from the UMAP plot using the `exclude` parameter as described below. By default, non-fluorescent channels such as FSC, SSC and Time are removed. Viability dyes are also removed provided that they are labelled as "DAPI", "Live", or "Viability".
 
 #### Parameters 
-
-* `ref_flow_foldername` a character vector of the folder name containing the first acquisition timepoint
-
-* `flow_foldername_1` a character vector of the folder name containing the second acquisition timepoint
-
-* `flow_foldername_2` *(optional)* the name of the folder containing the third acquisition timepoint
 
 * `normalize` a logical value. If TRUE, per-channel normalization will be performed. Default is FALSE. Can only be run if cytoNorm was performed.
 
 * `plot_norm` a logical value. If TRUE, normalized and unnormalized histograms will be produced for each channel and for each sample. Default is FALSE. 
 
-
+* `exclude` *(optional)* a character vector of the channels you wish to exclude from the UMAP plot. For example c("CD8","CD7") will remove channels containing CD8 or CD7 in the channel name. Note that this is not required if already specified when running cytoNorm. 
 
 ### 3. Visualization with ```cytoUMAP```
 
@@ -206,18 +193,6 @@ This function runs UMAP (from the `uwot` package) using the specified range of n
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-## Added functions 
-
-Some things I am planning on adding to make the functions more widely applicable: 
-
-* Create user-defined channels to exclude from normalization 
-* Increase the number of timepoints (>3) that can be analyzed
-* Make more user friendly (eg, produce error if Beads.csv does not match sample csv)
-
-
 
 
 
