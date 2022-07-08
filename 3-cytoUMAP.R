@@ -70,7 +70,8 @@ cytoUMAP <- function(min_nn,
         coord_fixed() + 
         theme_minimal() + 
         theme(panel.grid.major = element_blank(),
-              panel.grid.minor = element_blank()) + 
+              panel.grid.minor = element_blank(),
+              text = element_text(size = 12)) + 
         ggtitle(umap.out[[i]][["n_neighbors"]])
       
       print(p)
