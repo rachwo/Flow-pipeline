@@ -36,7 +36,7 @@ cytoUMAP <- function(min_nn,
     
     # downsample matrix (optional)
     if (!is.null(downsample)) {
-      mat.down <- with(matrix, ave(matrix[, 1], Well, FUN=function(x) {sample.int(length(x), replace = FALSE)}))
+      mat.down <- with(matrix, ave(matrix[, 1], plot, FUN = function(x) {sample.int(length(x), replace = FALSE)}))
       matrix.d <- matrix[mat.down <= as.numeric(downsample), ]
       
       assign(x = "matrix.down", value = matrix.d, envir = parent.frame())
