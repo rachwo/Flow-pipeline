@@ -4,7 +4,8 @@
 cytoNorm <- function(ref_bead_foldername, 
                      plot_norm = NULL,
                      exclude = NULL) { 
-
+  
+  # add list of parameters to be removed to the environment 
   assign(x = "removed", value = exclude, envir = parent.frame())
   
   # read in all other files that are called "Beads.csv" 
@@ -20,6 +21,7 @@ cytoNorm <- function(ref_bead_foldername,
     ret
   }
   
+  # remove non-fluorescent and (optionally) specified parameters
   mat <- plyr::ldply(file_list, csv_filename) %>% 
     select(-contains(c("FSC", "SSC", "Time", 
                        "GFP","DAPI","Live", 
@@ -41,7 +43,7 @@ cytoNorm <- function(ref_bead_foldername,
   norm.fact <- ref.beads[, -1][col(med)]/med[, -1] 
   norm.fact$Folder <- med$Folder
   
-  # export normalization factors to envir 
+  # export normalization factors to the environment
   assign(x = "norm.fact", value = norm.fact, envir = parent.frame())
   
   # generate histograms of normalized and unnormalized data
@@ -67,7 +69,10 @@ cytoNorm <- function(ref_bead_foldername,
     
     for (i in colNames) {
       
-      p <- ggplot(mat.plot, aes_string(x = i, y = "plot", fill = "Folder", color = "Folder")) +
+      p <- ggplot(mat.plot, aes_string(x = i, 
+                                       y = "plot", 
+                                       fill = "Folder", 
+                                       color = "Folder")) +
         geom_density_ridges2(alpha = 0.5, 
                              show.legend = FALSE,
                              quantile_lines = TRUE,
