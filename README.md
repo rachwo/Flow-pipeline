@@ -164,9 +164,9 @@ Normalization is not performed on non-fluorescent parameters (i.e., FSC, SSC, or
 * `exclude` a character vector of the channels you wish to exclude. For example c("CD8","CD7") will remove channels containing CD8 or CD7 in the channel name. 
 
 
-#### Examples 
+#### Example of output 
 
-An example of the output for a few channels is shown below.
+An example of the output of normalization for a few channels is shown below. In this example, data were acquired across two timepoints (day1 and day2).
 
 ![CD1a normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/Bead-normalization/CD1a_norm.png)
 ![CD13 normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/Bead-normalization/CD13_norm.png)
@@ -202,13 +202,13 @@ This function runs UMAP (from the `uwot` package) using the specified range of n
 * `downsample` an integer indicating the number of cells to downsample on (performed per sample). Recommended for large datasets.
 
 
-#### Examples
+#### Example of output
 
 In this example, day 2 is plotted alongside data from day 1. The day 2 data contains T-cell and myeloid populations, whereas the day 1 data only contains T-cell populations. Here's what the UMAP looks like when parsed by Sample:
 
 ![Sample UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/Sample_UMAP.png)
 
-And now looking at the same plots coloured according to CD marker expression:
+There appear to be two main populations: one in which day 1 and day 2 data overlap, and another population unique to day 2. This latter population is likely the myeloid population, and the former is likely T-cells. This can be confirmed when looking at the same plots coloured according to CD marker expression.
 
 ![CD7 UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/CD7_UMAP.png)
 ![CD5 UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/CD5_UMAP.png)
