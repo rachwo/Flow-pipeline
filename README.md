@@ -164,10 +164,12 @@ Normalization is not performed on non-fluorescent parameters (i.e., FSC, SSC, or
 * `exclude` a character vector of the channels you wish to exclude. For example c("CD8","CD7") will remove channels containing CD8 or CD7 in the channel name. 
 
 
-An example of the output for a few channels is shown below. 
+#### Examples 
 
-![CD1a normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Bead-normalization/CD1a.png)
-![CD13 normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Bead-normalization/CD13.png)
+An example of the output for a few channels is shown below.
+
+![CD1a normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/Bead-normalization/CD1a_norm.png)
+![CD13 normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/Bead-normalization/CD13_norm.png)
 
 
 ### 2. arcsinh transformation with ```cytoTrans```
@@ -186,6 +188,7 @@ This function reads each csv file containing the exported flow cytometry data an
 
 This function runs UMAP (from the `uwot` package) using the specified range of neighbours and the minimum neighbour distance. The output are UMAP plots in a new folder within the Parent directory called `Neighbour_plots`. **NOTE:** downsampling is highly recommended for large (i.e., >20,000 events) datasets.
 
+
 #### Parameters 
 
 * `min_nn` an integer indicating the minimum number of neighbours. min_nn must be >= 2.
@@ -198,6 +201,19 @@ This function runs UMAP (from the `uwot` package) using the specified range of n
 
 * `downsample` an integer indicating the number of cells to downsample on (performed per sample). Recommended for large datasets.
 
+
+#### Examples
+
+In this example, day 2 is plotted alongside data from day 1. The day 2 data contains T-cell and myeloid populations, whereas the day 1 data only contains T-cell populations. Here's what the UMAP looks like when parsed by Sample:
+
+![Sample UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/Sample_UMAP.png)
+
+And now looking at the same plots coloured according to CD marker expression:
+
+![CD7 UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/CD7_UMAP.png)
+![CD5 UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/CD5_UMAP.png)
+![CD13 UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/CD13_UMAP.png)
+![CD33 UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/CD33_UMAP.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
