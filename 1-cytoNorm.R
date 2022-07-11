@@ -7,13 +7,11 @@ cytoNorm <- function(ref_bead_foldername,
 
   assign(x = "removed", value = exclude, envir = parent.frame())
   
-  
   # read in all other files that are called "Beads.csv" 
   file_list <- list.files(path = ".", 
                           pattern = "Beads.csv", 
                           recursive = T, 
                           full.names = FALSE)
-  
   
   # add column indicating original folder name
   csv_filename <- function(filename) {
@@ -30,7 +28,6 @@ cytoNorm <- function(ref_bead_foldername,
   print("The folders containing your Beads.csv files include:")
   print(unique(mat$Folder))
 
-  
   # calculate median for each channel
   med <- mat %>% 
     group_by(Folder) %>% 
@@ -39,16 +36,13 @@ cytoNorm <- function(ref_bead_foldername,
     ungroup() %>% 
     as.data.frame()
   
-  
   # calculate normalization factor 
   ref.beads <- subset(med, Folder == ref_bead_foldername)
   norm.fact <- ref.beads[, -1][col(med)]/med[, -1] 
   norm.fact$Folder <- med$Folder
   
-  
   # export normalization factors to envir 
   assign(x = "norm.fact", value = norm.fact, envir = parent.frame())
-  
   
   # generate histograms of normalized and unnormalized data
   if (isTRUE(plot_norm)) {
