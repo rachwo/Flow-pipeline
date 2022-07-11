@@ -4,11 +4,9 @@ cytoTrans <- function(normalize = NULL,
                       plot_norm = NULL,
                       exclude = NULL) {
   
-  
   # create list of flowjo scale files from target directory (exclude bead files)
   file_list <- list.files(path = ".", pattern = "*.csv", recursive = T, full.names = FALSE) %>% 
     stringr::str_subset(., "Beads.csv", negate = T)
-  
   
   # add column indicating original file name
   csv_filename <- function(filename) {
@@ -21,7 +19,6 @@ cytoTrans <- function(normalize = NULL,
   
   mat.full <- plyr::ldply(file_list, csv_filename)
   
-  
   # remove unwanted channels (include channels already removed at the normalization step, if applicable)
   if(!is.null(removed) == TRUE) {
     removed <- removed
@@ -29,10 +26,8 @@ cytoTrans <- function(normalize = NULL,
   
   mat <- mat.full %>% select(-contains(c("FSC","SSC","Time","GFP","DAPI","Live","Viability", exclude, removed)))
   
-  
   # define transformation
   asinhtransform <- flowCore::arcsinhTransform(a = 0, b = 1/150)
-  
   
   # perform per-channel normalization
   if (isTRUE(normalize)) {
@@ -57,16 +52,17 @@ cytoTrans <- function(normalize = NULL,
     # generate histograms of normalized and unnormalized data
     if (isTRUE(plot_norm)) {
       
-      mat.plot <- mat[, c(1:length(norm.fact))] %>% 
+      mat.plot <- mat[, c(1:length(norm.fact) + 1)] %>% 
         mutate(dataset = "unnormalized") %>% 
         full_join(mat.norm %>% mutate(dataset = "normalized")) %>% 
-        mutate(plot = paste0(dataset, "_", Well))
+        mutate(plot = paste0(Folder, "_", Well, "_", dataset))
       
       colNames <- names(mat.norm[1:len])
       
       for (i in colNames) {
-  
-        p <- ggplot(mat.plot, aes_string(x = i, y = "plot", fill = "Well", color = "Well")) +
+        
+        mat.plot[i] <- asinhtransform(mat.plot[i])  
+        p <- ggplot(mat.plot, aes_string(x = i, y = "plot", fill = "Folder", color = "Folder")) +
           geom_density_ridges2(alpha = 0.5, 
                                show.legend = FALSE,
                                quantile_lines = TRUE,
