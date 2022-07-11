@@ -5,7 +5,10 @@ cytoTrans <- function(normalize = NULL,
                       exclude = NULL) {
   
   # create list of flowjo scale files from target directory (exclude bead files)
-  file_list <- list.files(path = ".", pattern = "*.csv", recursive = T, full.names = FALSE) %>% 
+  file_list <- list.files(path = ".", 
+                          pattern = "*.csv", 
+                          recursive = T, 
+                          full.names = FALSE) %>% 
     stringr::str_subset(., "Beads.csv", negate = T)
   
   # add column indicating original file name
@@ -19,12 +22,13 @@ cytoTrans <- function(normalize = NULL,
   
   mat.full <- plyr::ldply(file_list, csv_filename)
   
-  # remove unwanted channels (include channels already removed at the normalization step, if applicable)
-  if(!is.null(removed) == TRUE) {
-    removed <- removed
-  }
+  # remove unwanted channels 
+  # this also includes channels removed at the normalization step
+  if (!is.null(removed) == TRUE) { removed <- removed }
   
-  mat <- mat.full %>% select(-contains(c("FSC","SSC","Time","GFP","DAPI","Live","Viability", exclude, removed)))
+  mat <- mat.full %>% select(-contains(c("FSC","SSC","Time",
+                                         "GFP","DAPI","Live","Viability", 
+                                         exclude, removed)))
   
   # define transformation
   asinhtransform <- flowCore::arcsinhTransform(a = 0, b = 1/150)
@@ -34,7 +38,8 @@ cytoTrans <- function(normalize = NULL,
     
     # double check that cytoNorm was run successfully
     if (exists("norm.fact") != TRUE) {
-      print("Error: Can't perform normalization unless cytoNorm has been run. Please run cytoNorm first.")
+      print("Error: Can't perform normalization unless cytoNorm has been run. 
+            Please run cytoNorm first.")
     }
     
     # get number of columns for each dataframe 
@@ -42,7 +47,9 @@ cytoTrans <- function(normalize = NULL,
     norm.len <- len + length(norm.fact)
     
     # join normalization vector with matrix 
-    mat <- inner_join(mat, norm.fact[, c(1:len,length(norm.fact))], by = "Folder", suffix = c("",".norm"))
+    mat <- inner_join(mat, norm.fact[, c(1:len,length(norm.fact))], 
+                      by = "Folder", 
+                      suffix = c("",".norm"))
     
     # multiply unnormalized data by normalization factor
     mat.norm <- mat[1:len] * mat[(length(norm.fact) + 2):(norm.len + 1)]
@@ -62,7 +69,9 @@ cytoTrans <- function(normalize = NULL,
       for (i in colNames) {
         
         mat.plot[i] <- asinhtransform(mat.plot[i])  
-        p <- ggplot(mat.plot, aes_string(x = i, y = "plot", fill = "Folder", color = "Folder")) +
+        p <- ggplot(mat.plot, aes_string(x = i, y = "plot", 
+                                         fill = "Folder", 
+                                         color = "Folder")) +
           geom_density_ridges2(alpha = 0.5, 
                                show.legend = FALSE,
                                quantile_lines = TRUE,
@@ -88,16 +97,14 @@ cytoTrans <- function(normalize = NULL,
     
     # export dataframe to envir 
     assign(x = "matrix", value = mat.ast, envir = parent.frame())
-    
   }
   
   # prevent user from plotting normalized results if normalization is not specified
   else if (isTRUE(plot_norm) && (isFALSE(normalize) | is.null(normalize))) {
-    print("Error: can't plot normalization results if normalize is not set to TRUE. Do you want to normalize the data?")
-  }
-  
-  else {
+    print("Error: can't plot normalization results if normalize is not set to TRUE. 
+          Do you want to normalize the data?")
     
+  } else {
     # perform arcsinh transformation
     mat.ast <- mat %>%
       select(-c("Well", "Folder")) %>% 
@@ -108,6 +115,5 @@ cytoTrans <- function(normalize = NULL,
     
     # export dataframe to envir 
     assign(x = "matrix", value = mat.ast, envir = parent.frame()) 
-    
   }
 }
