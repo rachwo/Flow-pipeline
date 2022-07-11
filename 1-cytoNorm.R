@@ -1,7 +1,6 @@
 # this function calculates a per-channel normalization factor for each acquisition timepoint 
 # and (optionally) generates histograms of normalized and unnormalized data.
 
-
 cytoNorm <- function(ref_bead_foldername, 
                      plot_norm = NULL,
                      exclude = NULL) { 
@@ -39,7 +38,7 @@ cytoNorm <- function(ref_bead_foldername,
     dplyr::summarise(across(everything(), median)) %>% 
     ungroup() %>% 
     as.data.frame()
- 
+  
   
   # calculate normalization factor 
   ref.beads <- subset(med, Folder == ref_bead_foldername)
