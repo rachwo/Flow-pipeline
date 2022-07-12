@@ -25,7 +25,6 @@ The input is csv sample files (gated on Viable cells) and csv bead files which a
         <li><a href="#3-Visualization-with-cytoUMAP">cytoUMAP</a></li>
       </ul>
     </li>
-    <li><a href="#Added-functions">Functions to add</a></li>
     <li><a href="#contact">Contact</a></li>
     </ol>
 
