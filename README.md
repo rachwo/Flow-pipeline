@@ -1,8 +1,8 @@
 # Pipeline for flow cytometry analysis
 
-This is a pipeline for merging, normalizing, transforming and visualizing flow cytometry data in R. This pipeline allows you to merge and normalize flow cytometry data collected across different acquisition timepoints. 
+This is a pipeline for merging, normalizing, transforming and visualizing flow cytometry data in R. This pipeline allows you to merge and normalize flow cytometry data collected across different acquisition timepoints, provided that a bead control was acquired for each acquisition timepoint. 
 
-The input is csv files (gated on Viable cells) which are exported in **scale value** from FlowJo software. The output is normalized and transformed matrices for each flow cytometry channel, as well as UMAP plots.
+The input is csv sample files (gated on Viable cells) and csv bead files which are exported from FlowJo software in scale value. The output is a normalized matrix for each flow cytometry channel and for each sample, as well as UMAP plots which combine all of your samples into one plot. This method of visualization is useful for obtaining a high-level and non-biased overview of your dataset.  
 
 
 
@@ -53,11 +53,14 @@ Parent
   │    ├── flow_sample_2.csv
   │    └── flow_sample_3.csv
   │
-  └── Flow data collected on day 3 
-       ├── Beads.csv
-       ├── folder_3_csv1.csv
-       ├── folder_3_csv2.csv
-       └── folder_3_csv3.csv
+  ├── Flow data collected on day 3 
+  │    ├── Beads.csv
+  │    ├── folder_3_csv1.csv
+  │    ├── folder_3_csv2.csv
+  │    └── folder_3_csv3.csv
+  │
+  └── etc ...
+  
 ```
 
 ### R packages 
