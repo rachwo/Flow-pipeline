@@ -211,7 +211,7 @@ In this example, day 2 is plotted alongside data from day 1. The day 2 data cont
 
 ![Sample UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/Sample_UMAP.png)
 
-There appear to be two main populations: one in which day 1 and day 2 data overlap, and another population unique to day 2. This latter population is likely the myeloid population, and the former is likely T-cells. This can be confirmed when looking at the same plots coloured according to CD marker expression.
+There appear to be two main populations: one in which day 1 and day 2 data overlap, and another population unique to day 2. This latter population is likely the myeloid population, and the former is likely T-cells. This can be confirmed when looking at the same plots coloured according to CD marker expression. T-cells express high levels of CD5 and CD7, whereas myeloid populations express high levels of CD13 and CD33.
 
 ![CD7 UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/CD7_UMAP.png)
 ![CD5 UMAP](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/UMAP-plots/CD5_UMAP.png)
