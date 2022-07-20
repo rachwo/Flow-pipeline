@@ -113,7 +113,6 @@ library(uwot)
 library(ggplot2)
 library(ggridges)
 library(here)
-library(ggridges)
 ```
 
 2. Load the source code:
