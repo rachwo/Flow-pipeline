@@ -36,7 +36,7 @@ The input is csv sample files (gated on Viable cells) and csv bead files which a
 
 To begin, your directory hierarchy should look similar to this. Viable cells for each sample acquired by flow should be exported in **scale value** from FlowJo (flow_sample_X.csv) and should be contained in a folder with all other samples collected on that day. 
 
-**NOTE:** if normalization is not needed, then the `Beads.csv` files acquired at each timepoint are not required). However, if you choose to normalize your data, the bead data must be saved as `Beads.csv`, and there must be one `Beads.csv` file per acquisition folder.
+**NOTE:** if normalization is not needed, then the `Beads.csv` files acquired at each timepoint are not required. However, if you choose to normalize your data, the bead data must be saved as `Beads.csv`, and there must be one `Beads.csv` file per acquisition folder.
 
 ```
 Parent 
@@ -75,7 +75,6 @@ library(uwot)
 library(ggplot2)
 library(ggridges)
 library(here)
-library(ggridges)
 ```
 
 ### Input file format 
@@ -167,7 +166,7 @@ Normalization is not performed on non-fluorescent parameters (i.e., FSC, SSC, or
 
 #### Example of output 
 
-An example of the output of normalization for a few channels is shown below. In this example, data were acquired across two timepoints (day1 and day2).
+An example of the output of normalization for a few channels is shown below. In this example, data were acquired across two timepoints (day1 and day2). Data acquired on day 2 is normalized to data acquired on day 1.
 
 ![CD1a normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/Bead-normalization/CD1a_norm.png)
 ![CD13 normalization](https://github.com/rachwo/Flow-pipeline/blob/main/Example-of-output/Bead-normalization/CD13_norm.png)
