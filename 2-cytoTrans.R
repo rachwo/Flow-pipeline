@@ -6,7 +6,7 @@ cytoTrans <- function(normalize = NULL,
   
   # create list of flowjo scale files from target directory (exclude bead files)
   file_list <- list.files(path = ".", 
-                          pattern = "*.csv", 
+                          pattern = "\\*.csv$",
                           recursive = T, 
                           full.names = FALSE) %>% 
     stringr::str_subset(., "Beads.csv", negate = T)
