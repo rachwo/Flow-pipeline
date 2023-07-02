@@ -78,6 +78,8 @@ cytoNorm <- function(ref_bead_foldername,
                              show.legend = FALSE,
                              quantile_lines = TRUE,
                              quantiles = 2) + 
+        scale_x_continuous(limits = c(as.numeric(mean(mat.plot[[i]])-4*abs(quantile(mat.plot[[i]])[[2]])), 
+                                      as.numeric(mean(mat.plot[[i]])+4*abs(quantile(mat.plot[[i]])[[3]])))) +
         theme_minimal() + 
         theme(panel.grid = element_blank(),
               axis.title.y = element_blank(),
