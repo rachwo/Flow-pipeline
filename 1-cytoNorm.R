@@ -11,7 +11,8 @@ cytoNorm <- function(ref_bead_foldername,
   # read in all other files that are called "Beads.csv" 
   file_list <- list.files(path = ".", 
                           pattern = "Beads.csv", 
-                          recursive = T, 
+                          recursive = T,
+                          ignore.case = T,
                           full.names = FALSE)
   
   # add column indicating original folder name
