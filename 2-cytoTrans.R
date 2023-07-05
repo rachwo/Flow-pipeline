@@ -9,7 +9,7 @@ cytoTrans <- function(normalize = NULL,
                           pattern = "\\*.csv$",
                           recursive = T, 
                           full.names = FALSE) %>% 
-    stringr::str_subset(., "Beads.csv", negate = T)
+    stringr::str_subset(., "beads.csv|Beads.csv", negate = T)
   
   # add column indicating original file name
   csv_filename <- function(filename) {
